@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodyar Landing</title>
+    <!-- Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/script/tailwind-config.js"></script>
+
+    <style type="text/tailwindcss">
+        .flex::before,
+        .flex::after {
+            display: none !important;
+        }
+
+        .wrapper{
+            @apply max-w-[1440px] px-4 lg:px-[50px] xl:px-[100px] mx-auto font-quicksand;
+        }
+        
+        .nav-link{
+            @apply text-grey font-normal text-lg relative;
+        }
+
+        .nav-link.active{
+            @apply text-dark font-semibold max-w-max;
+        }
+
+        .nav-link.active span, .text__underline{
+            @apply h-1 absolute w-full z-[-10] rounded-[100px] bg-pink left-0 bottom-[6px];
+        }
+
+        .btn{
+            @apply rounded-t-[30px] rounded-b-[15px] py-[14px] px-[30px] font-semibold text-lg text-dark text-center capitalize;
+        }
+
+        .btn-pink{
+            @apply bg-pink;
+        }
+        .btn-yellow{
+            @apply bg-yellow;
+        }
+
+        section{
+            @apply pt-[100px];
+        }
+
+        .pills-item{
+            @apply text-dark capitalize text-xl text-center relative whitespace-nowrap;
+        }
+
+        .pills-item.active{
+            @apply text-yellow font-medium;
+        }
+
+        .pills-item.active span{
+            @apply bg-yellow h-[2px] w-[70%] right-[50%] bottom-[-10px] translate-x-1/2 absolute
+        }
+
+        .special-menu-content{
+            @apply grid md:grid-cols-2 lg:grid-cols-4 items-center gap-[30px]
+        }
+
+        .card-featured{
+            @apply flex flex-col items-center
+        }
+
+        .card-featured .title{
+            @apply text-[22px] text-dark font-semibold text-center mt-[14px] mb-2
+        }
+        .card-featured .subtitle{
+            @apply text-grey text-base text-center mb-3
+        }
+
+        .card-featured .thumbnail-container_1{
+            @apply xl:h-[300px] lg:h-[250px] w-full pr-[7px] pb-[6px] rounded-t-[31px] rounded-b-[77px] bg-purple overflow-hidden
+        }
+
+        .card-featured .thumbnail-container_2{
+            @apply h-full w-full pl-[9px] pt-[9px] rounded-tl-[67px] rounded-tr-[30px] rounded-b-[77px] bg-cream overflow-hidden
+        }
+
+        .card-featured .cover{
+            @apply rounded-tl-[67px] rounded-tr-[30px] rounded-b-[77px] object-cover h-full w-full
+        }
+
+        .card-featured .play-btn{
+            @apply absolute bottom-[50%] right-[50%] translate-x-1/2 translate-y-1/2 hidden
+        }
+
+        .footer-section-title{
+            @apply mb-5 font-medium text-[22px] text-dark
+        }
+        
+        .footer-link{
+            @apply text-lg text-grey hover:text-dark transition-all hover:underline hover:underline-offset-4 mb-[14px]
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="wrapper pt-5 lg:pt-[50px]">
+        <div class="flex flex-col items-stretch lg:flex-row lg:items-center lg:justify-between">
+            <!-- Logo & Toggler Button here -->
+            <div class="flex items-center justify-between">
+                <!-- LOGO -->
+                <div>
+                    <img src="assets/svgs/logo.svg" alt="foodyar" />
+                </div>
+                <!-- RESPONSIVE NAVBAR BUTTON TOGGLER -->
+                <div>
+                    <button class="block p-1 outline-none lg:hidden mobile-menu-button" data-target="#navigation">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-dark-1 dark:text-light-1"
+                            x-show="!showMenu" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="hidden mobile-menu lg:block mt-5 lg:mt-0" id="navigation">
+                <div
+                    class="flex flex-col w-full font-normal lg:flex-row text-dark lg:w-max lg:gap-x-[35px] gap-y-4 lg:items-center">
+                    <a href="#" class="nav-link active">Home <span></span></a>
+                    <a href="#" class="nav-link">Beverages <span></span></a>
+                    <a href="#" class="nav-link">Chef <span></span></a>
+                    <a href="#" class="nav-link">Ingredient <span></span></a>
+                    <a href="#" class="nav-link">Stories <span></span></a>
+                    <a href="#" class="btn btn-pink lg:ml-[15px] mt-[15px] lg:mt-0">My kitchen</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="wrapper">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <div class="text-[46px] text-dark font-bold leading-[70px]">
+                    <span class="relative overflow-hidden">
+                        Eat<span class="text__underline !h-2 !w-[90%]"></span>
+                    </span>What You Cook <br class="hidden md:block"> With Us,
+                    <span class="relative">
+                        Together!
+                        <span class="text__underline !h-2"></span>
+                    </span>
+                </div>
+                <div class="mt-[10px] mb-10 text-xl text-grey leading-[34px]">
+                    When you eat something that cooked by <br class="hidden md:block">
+                    yourself, the happiness is priceless.
+                </div>
+                <a href="#" class="btn btn-yellow">Decide a Menu</a>
+            </div>
+            <div class="relative">
+                <div class="absolute z-10 bottom-[50%] right-[50%] translate-x-1/2 translate-y-1/2">
+                    <img src="assets/svgs/ic-play.svg" alt="Foodyar">
+                </div>
+                <img src="assets/images/hero-image.png" alt="Foodyar">
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Menus -->
+    <section class="wrapper">
+        <div class="text-center mb-[30px]">
+            <p class="text-grey text-xl mb-[10px]">Watch Now</p>
+            <div class="text-[32px] text-dark font-bold">Special to Try</div>
+        </div>
+
+        <!-- NavTabs -->
+        <ul class="nav nav-tabs flex flex-nowrap items-center gap-12 md:gap-[50px] md:justify-center mb-[50px] overflow-x-auto pb-4"
+            id="tabs-specialMenu" role="tablist">
+            <li class="nav-item text-center" role="presentation">
+                <a href="#tabs-healthyFood" class="pills-item active" id="tabs-messages-tabFill" data-bs-toggle="pill"
+                    data-bs-target="#tabs-healthyFood" role="tab" aria-controls="tabs-healthyFood"
+                    aria-selected="false">Healthy Food <span></span></a>
+            </li>
+            <li class="nav-item text-center" role="presentation">
+                <a href="#tabs-lunchFood" class="pills-item" id="tabs-messages-tabFill" data-bs-toggle="pill"
+                    data-bs-target="#tabs-lunchFood" role="tab" aria-controls="tabs-lunchFood"
+                    aria-selected="false">Lunch <span></span></a>
+            </li>
+            <li class="nav-item text-center" role="presentation">
+                <a href="#tabs-vegeDesert" class="pills-item" id="tabs-messages-tabFill" data-bs-toggle="pill"
+                    data-bs-target="#tabs-vegeDesert" role="tab" aria-controls="tabs-vegeDesert"
+                    aria-selected="false">Vege Desert <span></span></a>
+            </li>
+            <li class="nav-item text-center" role="presentation">
+                <a href="#tabs-shakeShake" class="pills-item" id="tabs-messages-tabFill" data-bs-toggle="pill"
+                    data-bs-target="#tabs-shakeShake" role="tab" aria-controls="tabs-shakeShake"
+                    aria-selected="false">Shake <span></span></a>
+            </li>
+        </ul>
+        <div class="tab-content" id="tabs-specialMenuItems">
+            <div class="tab-pane fade show active" id="tabs-healthyFood" role="tabpanel"
+                aria-labelledby="tabs-profile-tabFill">
+                <!-- Content -->
+                <div class="special-menu-content">
+                    <div class="card-featured">
+                        <div class="thumbnail-container_1 group">
+                            <div class="thumbnail-container_2">
+                                <div class="relative h-full">
+                                    <img src="assets/images/gallery-04.png"
+                                        class="cover group-hover:brightness-[.6] transition-all" alt="Foodyar">
+                                    <img src="assets/svgs/ic-play.svg"
+                                        class="play-btn w-[70px] group-hover:block transition-all" alt="Foodyar">
+                                    <a href="#" class="inset-0 absolute"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">Salad Kiwi Sugga</div>
+                        <div class="subtitle">Amir Samantha</div>
+                        <div class="flex items-center gap-1 justify-center">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                        </div>
+                    </div>
+                    <div class="card-featured">
+                        <div class="thumbnail-container_1 group">
+                            <div class="thumbnail-container_2">
+                                <div class="relative h-full">
+                                    <img src="assets/images/gallery-03.png"
+                                        class="cover group-hover:brightness-[.6] transition-all" alt="Foodyar">
+                                    <img src="assets/svgs/ic-play.svg"
+                                        class="play-btn w-[70px] group-hover:block transition-all" alt="Foodyar">
+                                    <a href="#" class="inset-0 absolute"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">Avocado Muscle</div>
+                        <div class="subtitle">John Lennonk</div>
+                        <div class="flex items-center gap-1 justify-center">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                        </div>
+                    </div>
+                    <div class="card-featured">
+                        <div class="thumbnail-container_1 group">
+                            <div class="thumbnail-container_2">
+                                <div class="relative h-full">
+                                    <img src="assets/images/gallery-02.png"
+                                        class="cover group-hover:brightness-[.6] transition-all" alt="Foodyar">
+                                    <img src="assets/svgs/ic-play.svg"
+                                        class="play-btn w-[70px] group-hover:block transition-all" alt="Foodyar">
+                                    <a href="#" class="inset-0 absolute"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">Bayam Red Poppeye</div>
+                        <div class="subtitle">Toekang Sayoer</div>
+                        <div class="flex items-center gap-1 justify-center">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                        </div>
+                    </div>
+                    <div class="card-featured">
+                        <div class="thumbnail-container_1 group">
+                            <div class="thumbnail-container_2">
+                                <div class="relative h-full">
+                                    <img src="assets/images/gallery-01.png"
+                                        class="cover group-hover:brightness-[.6] transition-all" alt="Foodyar">
+                                    <img src="assets/svgs/ic-play.svg"
+                                        class="play-btn w-[70px] group-hover:block transition-all" alt="Foodyar">
+                                    <a href="#" class="inset-0 absolute"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">Naga Fruity Joss</div>
+                        <div class="subtitle">Imelda Saranghae</div>
+                        <div class="flex items-center gap-1 justify-center">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tabs-lunchFood" role="tabpanel" aria-labelledby="tabs-profile-tabFill">
+                <!-- Content -->
+                <div class="special-menu-content">
+                    <div class="card-featured">
+                        <div class="thumbnail-container_1 group">
+                            <div class="thumbnail-container_2">
+                                <div class="relative h-full">
+                                    <img src="assets/images/gallery-04.png"
+                                        class="cover group-hover:brightness-[.6] transition-all" alt="Foodyar">
+                                    <img src="assets/svgs/ic-play.svg"
+                                        class="play-btn w-[70px] group-hover:block transition-all" alt="Foodyar">
+                                    <a href="#" class="inset-0 absolute"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">Salad Kiwi Sugga</div>
+                        <div class="subtitle">Amir Samantha</div>
+                        <div class="flex items-center gap-1 justify-center">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                        </div>
+                    </div>
+                    <div class="card-featured">
+                        <div class="thumbnail-container_1 group">
+                            <div class="thumbnail-container_2">
+                                <div class="relative h-full">
+                                    <img src="assets/images/gallery-03.png"
+                                        class="cover group-hover:brightness-[.6] transition-all" alt="Foodyar">
+                                    <img src="assets/svgs/ic-play.svg"
+                                        class="play-btn w-[70px] group-hover:block transition-all" alt="Foodyar">
+                                    <a href="#" class="inset-0 absolute"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">Avocado Muscle</div>
+                        <div class="subtitle">John Lennonk</div>
+                        <div class="flex items-center gap-1 justify-center">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                        </div>
+                    </div>
+                    <div class="card-featured">
+                        <div class="thumbnail-container_1 group">
+                            <div class="thumbnail-container_2">
+                                <div class="relative h-full">
+                                    <img src="assets/images/gallery-02.png"
+                                        class="cover group-hover:brightness-[.6] transition-all" alt="Foodyar">
+                                    <img src="assets/svgs/ic-play.svg"
+                                        class="play-btn w-[70px] group-hover:block transition-all" alt="Foodyar">
+                                    <a href="#" class="inset-0 absolute"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">Bayam Red Poppeye</div>
+                        <div class="subtitle">Toekang Sayoer</div>
+                        <div class="flex items-center gap-1 justify-center">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tabs-vegeDesert" role="tabpanel" aria-labelledby="tabs-profile-tabFill">
+                <!-- Content -->
+                <div class="special-menu-content">
+                    <div class="card-featured">
+                        <div class="thumbnail-container_1 group">
+                            <div class="thumbnail-container_2">
+                                <div class="relative h-full">
+                                    <img src="assets/images/gallery-04.png"
+                                        class="cover group-hover:brightness-[.6] transition-all" alt="Foodyar">
+                                    <img src="assets/svgs/ic-play.svg"
+                                        class="play-btn w-[70px] group-hover:block transition-all" alt="Foodyar">
+                                    <a href="#" class="inset-0 absolute"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">Salad Kiwi Sugga</div>
+                        <div class="subtitle">Amir Samantha</div>
+                        <div class="flex items-center gap-1 justify-center">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                        </div>
+                    </div>
+                    <div class="card-featured">
+                        <div class="thumbnail-container_1 group">
+                            <div class="thumbnail-container_2">
+                                <div class="relative h-full">
+                                    <img src="assets/images/gallery-03.png"
+                                        class="cover group-hover:brightness-[.6] transition-all" alt="Foodyar">
+                                    <img src="assets/svgs/ic-play.svg"
+                                        class="play-btn w-[70px] group-hover:block transition-all" alt="Foodyar">
+                                    <a href="#" class="inset-0 absolute"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">Avocado Muscle</div>
+                        <div class="subtitle">John Lennonk</div>
+                        <div class="flex items-center gap-1 justify-center">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tabs-shakeShake" role="tabpanel" aria-labelledby="tabs-profile-tabFill">
+                <!-- Content -->
+                <div class="special-menu-content">
+                    <div class="card-featured">
+                        <div class="thumbnail-container_1 group">
+                            <div class="thumbnail-container_2">
+                                <div class="relative h-full">
+                                    <img src="assets/images/gallery-04.png"
+                                        class="cover group-hover:brightness-[.6] transition-all" alt="Foodyar">
+                                    <img src="assets/svgs/ic-play.svg"
+                                        class="play-btn w-[70px] group-hover:block transition-all" alt="Foodyar">
+                                    <a href="#" class="inset-0 absolute"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">Salad Kiwi Sugga</div>
+                        <div class="subtitle">Amir Samantha</div>
+                        <div class="flex items-center gap-1 justify-center">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                            <img src="assets/svgs/star.svg" alt="Foodyar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="wrapper !pt-[170px]">
+        <div class="flex justify-center flex-col gap-5 items-center">
+            <div
+                class="text-center md:max-w-[736px] text-2xl md:text-[36px] text-dark leading-snug md:leading-[50px] relative">
+                <img src="assets/svgs/quote1.svg" class="absolute left-[-130px] top-[-70px] z-[-10]" alt="Foodyar">
+                Awalnya saya malu dengan mertua karena tidak bisa memasak, kini mereka lebih suka makan malam di rumah
+                demi
+                menyantap masakan yang saya buat sendiri
+            </div>
+            <div class="flex gap-5 items-center">
+                <div class="relative">
+                    <img src="assets/images/avatar.png" class="w-20 relative z-10 object-cover rounded-full"
+                        alt="Foodyar">
+                    <span class="w-20 bg-purple absolute z-0 h-20 rounded-full bottom-[-3px] right-[-6px]"></span>
+                    <span class="w-20 bg-cream absolute z-0 h-20 rounded-full top-[-3px] left-[-6px]"></span>
+                </div>
+                <div>
+                    <div class="text-dark text-[22px] font-semibold">Camella Sarrah</div>
+                    <p class="mt-[6px] text-base text-grey">Vege Master</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="wrapper">
+        <div
+            class="flex flex-wrap justify-center items-center max-w-[857px] mx-auto gap-10 md:gap[70px] lg:gap-[100px]">
+            <div class="flex flex-col items-center gap-2">
+                <div class="text-dark text-[32px] font-bold">180.000+</div>
+                <p class="uppercase text-xl text-grey">Menu Food</p>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="text-dark text-[32px] font-bold">20.000+</div>
+                <p class="uppercase text-xl text-grey">chefs</p>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="text-dark text-[32px] font-bold">400.000+</div>
+                <p class="uppercase text-xl text-grey">course</p>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="text-dark text-[32px] font-bold">6.900.000</div>
+                <p class="uppercase text-xl text-grey">alumni</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download App -->
+    <section class="wrapper pb-[150px]">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <div class="relative max-w-[428px] mx-auto">
+                <img src="assets/images/illustration-image.png" alt="Foodyar">
+            </div>
+            <div>
+                <div class="text-[46px] text-dark font-bold leading-[70px]">
+                    <span class="relative overflow-hidden">
+                        Download<span class="text__underline !h-2 !w-[95%]"></span>
+                    </span>our app <br class="hidden md:block"> and join
+                    <span class="relative">
+                        the contest
+                        <span class="text__underline !h-2"></span>
+                    </span>
+                </div>
+                <div class="mt-[10px] mb-10 text-xl text-grey leading-[34px]">
+                    In order to improve our cooking skills, <br class="hidden md:block">
+                    we do need a food photography
+                </div>
+                <div class="mt-[50px] flex items-center gap-5">
+                    <a href="#">
+                        <img src="assets/svgs/app-store.svg" alt="Foodyar">
+                    </a>
+                    <a href="#">
+                        <img src="assets/svgs/play-store.svg" alt="Foodyar">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-[70px] border-t border-b border-gray">
+        <div class="wrapper">
+            <div class="flex flex-wrap justify-between items-start gap-12">
+                <div class="h-full md:my-auto">
+                    <img src="assets/svgs/logo.svg" alt="Foodyar">
+                </div>
+                <div class="flex flex-col">
+                    <div class="footer-section-title">
+                        Special Course
+                    </div>
+                    <a href="#" class="footer-link">Wedding
+                        Foods</a>
+                    <a href="#" class="footer-link">Healthy
+                        and
+                        Muscle</a>
+                    <a href="#" class="footer-link">Office
+                        Food
+                        Daily</a>
+                    <a href="#" class="footer-link">Happy
+                        Kids</a>
+                </div>
+                <div class="flex flex-col">
+                    <div class="footer-section-title">
+                        Company
+                    </div>
+                    <a href="#" class="footer-link">APIs Developer</a>
+                    <a href="#" class="footer-link">Career</a>
+                    <a href="#" class="footer-link">Terms & Conditions</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+                <div class="flex flex-col">
+                    <div class="footer-section-title">
+                        Be Our Friend
+                    </div>
+                    <a href="#" class="footer-link">3, Season Park, Jakarta</a>
+                    <a href="#" class="footer-link">support@foodyar.co.id</a>
+                    <a href="#" class="footer-link">021 - 1111 - 2222</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footermark -->
+    <div class="wrapper py-[30px]">
+        <p class="text-grey text-center">
+            All Rights Reserved Foodyar by Pixel from BuildWith Angga 2020
+        </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script src="assets/script/script.js"></script>
+</body>
+
+</html>
